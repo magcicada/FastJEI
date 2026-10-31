@@ -22,7 +22,7 @@ public abstract class VanillaPluginTimingMixin {
 	private static long fastjei$lastNanos;
 
 	@Inject(method = "registerRecipes", at = @At("HEAD"))
-	private void fastjei$beginTiming(IRecipeRegistration registration, CallbackInfo ci) {
+	private static void fastjei$beginTiming(IRecipeRegistration registration, CallbackInfo ci) {
 		fastjei$lastNanos = System.nanoTime();
 	}
 
@@ -33,7 +33,7 @@ public abstract class VanillaPluginTimingMixin {
 					target = "Lmezz/jei/api/registration/IRecipeRegistration;addRecipes(Lmezz/jei/api/recipe/RecipeType;Ljava/util/List;)V"
 			)
 	)
-	private void fastjei$timeCategory(
+	private static void fastjei$timeCategory(
 			IRecipeRegistration registration,
 			RecipeType<?> type,
 			List<?> recipes,
